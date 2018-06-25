@@ -15,3 +15,7 @@
   shell: docker run --rm docker/dtr:{{ DTR_VERSION }} join --ucp-node {{ ansible_hostname }} --ucp-insecure-tls --ucp-username "{{ UCP_USERNAME }}" --ucp-password "{{ UCP_PASSWORD }}" --ucp-url "https://{{ hostvars[groups['ucp_managers'][0]]['ansible_host'] }}" --existing-replica-id "{{ replica_id }}"
   ignore_errors: yes
   when: dtr_replica is defined
+
+- name: DTR | Reconfigure Replica
+  become: true
+  shell: docker run -it --rm docker/dtr:{{ DTR_VERSION }} reconfigure --dtr-external-url "https://{{ ansible_host }}" --ucp-insecure-tls --ucp-username "{{ UCP_USERNAME }}" --ucp-password "{{ UCP_PASSWORD }}" --ucp-url "https://{{ hostvars[groups['ucp_managers'][0]]['ansible_host'] }}" --replica-id "{{ replica_id }}"
