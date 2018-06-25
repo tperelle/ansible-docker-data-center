@@ -1,0 +1,18 @@
+---
+
+- name: MONITORING | Ensure git is installed
+  package:
+    name: git
+    state: present
+  become: true
+
+- name: Checkout swarmprom project
+  git:
+    repo: "{{ MONITORING_REPO_URL }}"
+    dest: "{{ MONITORING_HOME }}"
+
+- name: MONITORING | Deploy Swarmprom
+  command: docker stack deploy -c {{ MONITORING_STACK_FILE_NAME }} {{ MONITORING_STACK_NAME }}
+  args:
+    chdir: "{{ MONITORING_HOME }}"
+  become: true

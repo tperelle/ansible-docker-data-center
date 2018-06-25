@@ -1,0 +1,8 @@
+---
+
+MONITORING_REPO_URL: "https://github.com/stefanprodan/swarmprom.git"
+MONITORING_HOME: "~/monitoring"
+MONITORING_USERNAME: "admin"
+MONITPRING_PASSWORD: "admin"
+MONITORING_STACK_FILE_NAME: "docker-compose.yml"
+MONITORING_STACK_NAME: "monitoring"

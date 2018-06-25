@@ -1,0 +1,8 @@
+---
+
+# Pre-install | Create user
+- hosts: ucp_managers[0]
+  roles:
+  - role: monitoring
+  tags:
+  - deploy
