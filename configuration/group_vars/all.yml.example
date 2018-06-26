@@ -9,7 +9,7 @@ RHEL_USERNAME: lbnunix
 RHEL_PASSWORD: lbnpassword
 
 # Docker EE licence URL
-DOCKER_EE_URL: "https://storebits.docker.com/ee/m/sub-469aadd1-5db6-4175-9093-14659557f587"
+DOCKER_EE_URL: ""
 
 # UCP credentials
 UCP_USERNAME: admin
@@ -17,3 +17,6 @@ UCP_PASSWORD: adminadmin
 
 # DTR replica ID for joining first DTR node
 replica_id: 13b873dfa912
+
+# ansible
+ANSIBLE_ROLES_PATH: "{{ playbook_dir }}/roles"
